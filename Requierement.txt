@@ -1,0 +1,8 @@
+npm init
+git init
+npx eslint --init
+npm run lint -- --fix
+
+npm install @hapi/hapi
+npm install nodemon
+npm install nanoid
