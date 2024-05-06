@@ -1,5 +1,7 @@
 npm init
 git init
+
+npm install eslint
 npx eslint --init
 npm run lint -- --fix
 

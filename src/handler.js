@@ -3,7 +3,7 @@ const { nanoid } = require('nanoid');
 const bookshelf = require('./bookshelf'); 
 
 const addBookShelf = (request, h) => {
-   //Client
+   //dari Client
  const {
     name, year, author, summary, publisher, pageCount, readPage, reading,
  } = request.payload;
@@ -12,7 +12,7 @@ const addBookShelf = (request, h) => {
  const updatedAt = insertedAt;
  const finished = pageCount === readPage;
 
-//  object in server
+//  object di server
  bookshelf.push({ id,name,year, author,summary, publisher,pageCount,readPage,finished,reading,insertedAt,
     updatedAt,
  })
@@ -48,10 +48,11 @@ const addBookShelf = (request, h) => {
 }
 
 const getAllBookshelfAPI = (request, h) => {
+  const limitedBookshelf = bookshelf.slice(0, 2);
   const response = h.response({
     status: "success",
     data: {
-      books: bookshelf.map((book) => ({
+      books: limitedBookshelf.map((book) => ({
         id: book.id,
        name: book.name,
        publisher: book.publisher,
