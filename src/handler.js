@@ -164,7 +164,4 @@ const getAllBookshelfAPI = (request, h) => {
     return response;
   };
 
-
- 
-
 module.exports = { addBookShelf, getAllBookshelfAPI , getBookByIdHandler, editBookshelfAPI, deleteBookshelfAPI };
