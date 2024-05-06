@@ -60,40 +60,8 @@ const getAllBookshelfAPI = (request, h) => {
   });
   response.code(200);
   return response;
-
   
 }
-
-
- 
-// const getAllBookshelfAPI = (request, h) => {
-//   const {id, name, publisher}
-
-  //  let booksResponse = [];
-  //  // Jika tidak ada buku, kembalikan array kosong
-  //  if (bookshelf.length === 0) {
-  //    booksResponse = [];
-  //  } else  {
-  //    // Jika ada buku, format respons dengan data buku
-  //    booksResponse = bookshelf.map(book => ({
-  //      id: book.id,
-  //      name: book.name,
-  //      publisher: book.publisher,
-  //    }));
-  //  }
-
-  //  const response = h.response({
-  //    status: 'success',
-  //    data: {
-  //      books: booksResponse,
-  //    }
-  //  });
-  //  response.code(200);
-  //  return response;
-
-// Pengujian respons dengan array dua item
-
-
  const getBookByIdHandler = (request, h) => {
    const { bookId } = request.params;
   //  const book = bookshelf.find((b) => b.id === bookId);
