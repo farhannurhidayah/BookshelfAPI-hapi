@@ -1,4 +1,4 @@
-const { addBookShelf, getBookshelfAPI, getBookByIdHandler, editBookshelfAPI, deleteBookshelfAPI }= require('./handler');
+const { addBookShelf, getAllBookshelfAPI, getBookByIdHandler, editBookshelfAPI, deleteBookshelfAPI }= require('./handler');
 
 const routes = [
     {
@@ -9,7 +9,7 @@ const routes = [
     {
         method:'GET',
         path:'/books',
-        handler:getBookshelfAPI,
+        handler:getAllBookshelfAPI,
     },
     {
         method:'GET',
