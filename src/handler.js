@@ -12,29 +12,30 @@ const addBookShelf = (request, h) => {
  const updatedAt = insertedAt;
  const finished = pageCount === readPage;
 
+
+ if (!name) {
+  const response = h.response({
+      status:'fail',
+      message:'Gagal menambahkan buku. Mohon isi nama buku',
+  });
+  response.code(400);
+  return response;
+}
+if (readPage > pageCount) {
+  const response = h.response({
+      status: 'fail',
+      message: 'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount'
+  });
+  response.code(400);
+  return response;
+} 
 //  object di server
  bookshelf.push({ id,name,year, author,summary, publisher,pageCount,readPage,finished,reading,insertedAt,
     updatedAt,
  })
-  
- 
  const isSuccess = bookshelf.filter((book) => book.id === id).length > 0;
- if (!name) {
-    const response = h.response({
-        status:'fail',
-        message:'Gagal menambahkan buku. Mohon isi nama buku',
-    });
-    response.code(400);
-    return response;
- }
- if (readPage > pageCount) {
-    const response = h.response({
-        status: 'fail',
-        message: 'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount'
-    });
-    response.code(400);
-    return response;
- } if (isSuccess) {
+
+ if (isSuccess) {
    const response = h.response({
       status: "success",
       message: "Buku berhasil ditambahkan",
